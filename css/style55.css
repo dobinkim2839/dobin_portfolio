@@ -1,0 +1,347 @@
+@charset "utf-8";
+/* 구글폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital@1&family=Noto+Sans+KR&family=Public+Sans&display=swap');
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+a {color: inherit; text-decoration: inherit;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+button {background: none; border: none;}
+img {vertical-align: middle;}
+
+
+
+
+
+.en{font-family: 'silk serif italic';}
+.en1{font-family: 'silk serif medium Regular';}
+.en2 {font-family:'silk serif ExtraLight' ;}
+.en3{font-family: 'silk serif medium Regular';}
+.en4{font-family: 'silk serif bold';}
+
+.en5{font-family:'NeueHaasDisplayLight' ;}
+.en6{font-family: 'silk serif SemBold';}
+.en7{font-family: 'silk serif Regular italic';}
+
+.menuOpen{display: none; transition: 0.3s;}
+
+/* change section service's color */
+
+@font-face {
+	font-family: 'NeueHaasDisplayRoman';
+	src: url(../fonts/NeueHaasDisplayRoman.ttf);
+}
+
+@font-face {
+	font-family:'NeueHaasDisplayLight' ;
+	src: url(../fonts/NeueHaasDisplayLight.ttf);
+}
+
+
+@font-face {
+	font-family:silk serif Regular italic;
+	src: url(../fonts/silk-serif/Silk\ Serif\ Regular\ Italic.otf);
+}
+
+@font-face {
+	font-family:'silk serif ExtraLight' ;
+	src: url(../fonts/silk-serif/Silk\ Serif\ ExtraLight\ Italic.otf);
+}
+
+
+@font-face {
+	font-family: 'silk serif SemBold';
+	src: url(../fonts/silk-serif/Silk\ Serif\ SemiBold.otf);
+}
+
+@font-face {
+	font-family: 'silk serif bold';
+	src: url(../fonts/silk-serif/Silk\ Serif\ Black\ Italic.otf);
+}
+
+@font-face {font-family: 'silk serif medium Regular';
+	
+	src: url(../fonts/silk-serif/Silk\ Serif\ Regular.otf);
+}
+
+@font-face {
+	font-family: 'silk serif italic';
+	src: url(../fonts/silk-serif/Silk\ Serif\ Light\ Italic.otf);
+}
+
+
+
+/* layout */
+body{transition: all 0.4s; font-family: 'NeueHaasDisplayRoman';}
+body.on{background: #F0E2C3;}
+.wrap{width: 100%; margin: 0 auto; overflow: hidden;}
+
+
+header{width: 100%; position: fixed; left: 0; top: 0; background: rgba(0,0,0,0.5); z-index: 100; padding: 30px 60px; 
+	box-sizing: border-box; display: flex; justify-content: space-between; transition: 0.3s;} 
+header.active{transform: translateY(-100%);}
+header .logo{color: white;}
+header .gnb ul{display: flex; justify-content: space-between;}
+header .gnb ul li{margin-left: 70px;}
+header .gnb ul li a{display: block;}
+
+/* gnb hover 효과 */
+header .gnb ul li a .char{display: inline-block; position: relative; color: transparent; overflow: hidden;}
+header .gnb ul li a .char:before ,header .gnb ul li a .char:after{position: absolute; left: 0; top: 0;opacity: 0.6; color: white;
+content: attr(data-char); transition: transform 0.35s; transition-delay: calc(30ms *var(--char-index));}  /* data는 속성값을 가져오기 때문에 attr로  / 한글자씩 30ms 딜레이를 준다  */
+header .gnb ul li a .char:before {transform: translateY(100%);  color: #CE8800;} 
+
+
+/* hover 효과 */
+header .gnb ul li :hover .char:before{transform: translateY(0%);opacity: 1;}
+header .gnb ul li a:hover .char:after {transform: translateY(-100%);} 
+/* con01 */
+.con01 {width: 100%;padding: 0; position: relative;}
+.con01 .videoWrap video{width: 100%}
+.con01 .title{position: absolute; width: 100%; text-align: center; left: 0; top: 50%; transform: translateY(-50%); color: white;}
+.con01 .title .h2{font-size: 80px; font-weight: 400; letter-spacing: -1px; line-height: 1.2;}
+
+/* con02 */
+.con02{width: 100%;  position: relative;height: 7533px;}
+.con02 .infoBox{width: 1530px; height: 7533px; margin: 0 auto; position: relative; position: absolute; left: 156px;}
+/* born */
+.con02 .infoBox .born{width: 100%;display: flex; justify-content: space-between; position: relative;}
+.con02 .infoBox .born .textBox{position: absolute; left: 260px; top: 175px;}
+.con02 .infoBox .born .textBox .title{font-size: 50px; font-style: italic;padding-bottom: 23px;}
+.con02 .infoBox .born .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .born .textBox .date{font-size: 25px; font-style: italic;padding-bottom: 12px;}
+.con02 .infoBox .born .textBox .text{font-size: 25px;}
+.con02 .infoBox .born .imgBox{position: absolute; right: 30px;}
+.con02 .infoBox .born .imgBox .img1{z-index: 2;position: absolute; right: 30px;}
+.con02 .infoBox .born .imgBox .img2{position: absolute; right: 258px; top:157px; z-index: 1;} 
+
+@keyframes titleAni01{
+	0%{opacity: 0;}
+	30%{opacity: 0; transform:translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+}
+/* middle/high school */
+.con02 .infoBox .school{width: 100%;display: flex; justify-content: space-between;position: relative;
+    position: absolute; left: 0; top: 1067px;}
+.con02 .infoBox .school .imgBox .img1{z-index: 2;position: absolute; left: 0px;}
+.con02 .infoBox .school .imgBox .img2{z-index: 1;position: absolute; left: 240px; top: 116px;}
+.con02 .infoBox .school .textBox{position: absolute; right: 41px; top:159px} 
+.con02 .infoBox .school .textBox .title{font-size: 50px; font-style: italic; padding-bottom: 23px;}
+.con02 .infoBox .school .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .school .textBox .date{font-size: 25px; font-style: italic; padding-bottom: 12px;}
+.con02 .infoBox .school .textBox .text{font-size: 25px;}
+
+/* japan */
+.con02 .infoBox .japan{width: 100%;display: flex; justify-content: space-between;position: relative;
+    position: absolute;right: 0px; top: 2262px;}
+.con02 .infoBox .japan .textBox{position: absolute; left: 90px; top: 175px;}
+.con02 .infoBox .japan .textBox .title{font-size: 50px; font-style: italic;padding-bottom: 23px;}
+.con02 .infoBox .japan .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .japan .textBox .date{font-size: 25px; font-style: italic;padding-bottom: 12px;}
+.con02 .infoBox .japan .textBox .text{font-size: 25px;}
+.con02 .infoBox .japan .imgBox{position: absolute; right: 0px;}
+.con02 .infoBox .japan .imgBox .img1{z-index: 2;position: absolute; right: 0px;}
+.con02 .infoBox .japan .imgBox .img2{position: absolute; right: 248px; top:157px; z-index: 1;} 
+
+/* uk */
+.con02 .infoBox .uk{width: 100%;display: flex; justify-content: space-between;position: relative;
+    width: 100%;display: flex; justify-content: space-between;position: relative; position: absolute; left: 0; top: 3564px;}
+.con02 .infoBox .uk .imgBox .img1{z-index: 2;position: absolute; left: 0px;}
+.con02 .infoBox .uk .imgBox .img2{z-index: 1;position: absolute; left: 240px; top: 116px;}
+.con02 .infoBox .uk .textBox{position: absolute; right: 112px; top:159px} 
+.con02 .infoBox .uk .textBox .title{font-size: 50px; font-style: italic; padding-bottom: 23px;}
+.con02 .infoBox .uk .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .uk .textBox .date{font-size: 25px; font-style: italic; padding-bottom: 12px;}
+.con02 .infoBox .uk .textBox .text{font-size: 25px;}
+
+/* sweden */
+.con02 .infoBox .sweden{width: 100%;display: flex; justify-content: space-between;position: relative;
+    position: absolute;right: 0; top: 4800px; }
+.con02 .infoBox .sweden .textBox{position: absolute; left: 90px; top: 175px;}
+.con02 .infoBox .sweden .textBox .title{font-size: 50px; font-style: italic;padding-bottom: 23px;}
+.con02 .infoBox .sweden .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .sweden .textBox .date{font-size: 25px; font-style: italic;padding-bottom: 12px;}
+.con02 .infoBox .sweden .textBox .text{font-size: 25px;}
+.con02 .infoBox .sweden .imgBox{position: absolute; right: 0px;}
+.con02 .infoBox .sweden .imgBox .img1{z-index: 2;position: absolute; right: 0px;}
+.con02 .infoBox .sweden .imgBox .img2{position: absolute; right: 248px; top:157px; z-index: 1;} 
+
+/* ezen */
+.con02 .infoBox .ezen{width: 100%;display: flex; justify-content: space-between;position: relative; 
+    position: absolute; left: 0; top: 6311px;}
+.con02 .infoBox .ezen .imgBox .img1{z-index: 2;position: absolute; left: 0px;}
+.con02 .infoBox .ezen .imgBox .img2{z-index: 1;position: absolute; left: 240px; top: 116px;}
+.con02 .infoBox .ezen .textBox{position: absolute; right: 112px; top:159px} 
+.con02 .infoBox .ezen .textBox .title{font-size: 50px; font-style: italic; padding-bottom: 23px;}
+.con02 .infoBox .ezen .textBox .title.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.con02 .infoBox .ezen .textBox .date{font-size: 25px; font-style: italic; padding-bottom: 12px;}
+.con02 .infoBox .ezen .textBox .text{font-size: 25px;}
+
+
+/* line animation */
+.con02 .infoBox .born .svg01{ width: 528px; height: 280px; position: absolute; top: 544px; left: 346px;}
+.con02 .infoBox .school .svg02{width: 886px; height: 512px; position: absolute; top: 623px; left: 354px;}
+.con02 .infoBox .japan .svg03{width: 890px; height: 512px; position: absolute; top: 646px; left: 243px;}
+.con02 .infoBox .uk .svg04{width: 890px; height: 533px; position: absolute; top: 646px; left: 243px;}
+.con02 .infoBox .sweden .svg05{width: 590px; height: 750px; position: absolute; top: 384px; left: 192px;}
+
+.con02.motion  #Line01{stroke-dasharray:381; stroke-dashoffset:381; animation: line01 .5s linear 1.5s forwards;}
+.con02.motion  #Line02{stroke-dasharray:30; stroke-dashoffset:30; animation: line02 .3s linear 1.7s forwards;}
+
+.con02.motion  #Line001{stroke-dasharray:740; stroke-dashoffset:740; animation: line001 1.2s linear 2.6s forwards;}
+.con02.motion  #Line002{stroke-dasharray:25; stroke-dashoffset:25; animation: line002 .3s linear 2.8s forwards;}
+
+.con02.motion  #Line0001{stroke-dasharray:758; stroke-dashoffset:758; animation: line0001 1.2s linear 4s forwards;}
+.con02.motion  #Line0002{stroke-dasharray:30; stroke-dashoffset:30; animation: line0002 .4s linear 4.4s forwards;}
+
+.con02.motion  #Line00001{stroke-dasharray:770; stroke-dashoffset:770; animation: line00001 1.2s linear 6s forwards;}
+.con02.motion  #Line00002{stroke-dasharray:24; stroke-dashoffset:24; animation: line00002 .4s linear 6.3s forwards;}
+
+.con02.motion  #Line0000001{stroke-dasharray:791; stroke-dashoffset:791; animation: Line0000001 1.6s linear 7.2s forwards;}
+.con02.motion  #Line0000002{stroke-dasharray:26; stroke-dashoffset:26; animation: Line0000002 .4s linear 7.4s forwards;}
+
+@keyframes line01{
+0%{stroke-dashoffset:381;}
+100%{stroke-dashoffset:0;}
+}
+@keyframes line02{
+	0%{stroke-dashoffset:30;}
+	100%{stroke-dashoffset:0;}
+	}
+
+@keyframes line001{
+	0%{stroke-dashoffset:740;}
+	100%{stroke-dashoffset:0;}
+	}
+@keyframes line002{
+	0%{stroke-dashoffset:25;}
+	100%{stroke-dashoffset:0;}
+	}
+
+@keyframes line0001{
+	0%{stroke-dashoffset:758;}
+	100%{stroke-dashoffset:0;}
+	}
+@keyframes line0002{
+	0%{stroke-dashoffset:30;}
+	100%{stroke-dashoffset:0;}
+	}
+
+@keyframes line00001{
+	0%{stroke-dashoffset:770;}
+	100%{stroke-dashoffset:0;}
+	}
+@keyframes line00002{
+	0%{stroke-dashoffset:24;}
+	100%{stroke-dashoffset:0;}
+	}
+	
+@keyframes Line0000001{
+	0%{stroke-dashoffset:791;}
+	100%{stroke-dashoffset:0;}
+	}
+@keyframes Line0000002{
+	0%{stroke-dashoffset:26;}
+	100%{stroke-dashoffset:0;}
+	}
+
+
+
+.cv{width: 100%; height: 1310px ; }
+.cv .info{width: 1620px; height: 1000px;  display: flex; margin: 0 auto; padding-top: 201px;}
+.cv .info .imgBox{padding-right: 49px;}
+.cv .info .textBox {padding-top: 34px;}
+.cv .info .textBox .Toptext{padding-bottom: 107px;}
+.cv .info .textBox .Toptext .detail .title{font-size: 22px;padding-bottom: 34px;}
+.cv .info .textBox .Toptext .detail .text1{font-size: 20px; padding-bottom: 34px;line-height: 1.1;}
+.cv .info .textBox .Toptext .detail .text2{font-size: 20px; padding-bottom: 34px;line-height: 1.1;}
+.cv .info .textBox .Toptext .detail .text3{font-size: 20px; line-height: 1.1;}
+.cv .info .textBox .Toptext .detail2{margin-top: 66px; display: flex; font-size: 18px;} 
+.cv .info .textBox .Toptext .detail2 .left{margin-right: 26px; line-height: 2.5;font-weight: 600;}
+.cv .info .textBox .Toptext .detail2 .right{line-height: 2.5; }
+
+
+.cv .info .textBox .under{display: flex; font-size: 18px; width: 1052px; justify-content: space-between; line-height: 1.1; }
+.cv .info .textBox .under .left .title{padding-bottom: 18px;}
+.cv .info .textBox .under .left .text1{padding-bottom: 18px;}
+.cv .info .textBox .under .left .text2{padding-bottom: 18px;}
+
+.cv .info .textBox .under .left .button{width: 110px; height: 35px; border-radius: 50px; background: #CE8800; text-align: center; line-height: 35px; margin-top:27px ;}
+.cv .info .textBox .under .left .button a{display: block;}
+
+.cv .info .textBox .under .right .title{padding-bottom: 18px;}
+.cv .info .textBox .under .right .title01{ padding-bottom: 18px;}
+.cv .info .textBox .under .right .txtBox1{padding-bottom: 18px; }
+.cv .info .textBox .under .right .txtBox1 .text1{padding-bottom: 8px;}
+.cv .info .textBox .under .right .txtBox2{padding-bottom: 18px;}
+.cv .info .textBox .under .right .txtBox2 .text1{padding-bottom: 8px;}
+.cv .info .textBox .under .right .txtBox3 .text1{padding-bottom: 8px;}
+
+/* ncs */
+.ncs{width: 100%; height:2167px; color: black;}
+.ncs .ncsBox{width: 1562px; padding-top: 500px; margin: 0 auto;}
+.ncs .ncsBox h2{font-size: 50px; padding-bottom: 102px;}
+.ncs .ncsBox h2.motion{animation-name: titleAni01; animation-duration: 0.8s;}
+.ncs .ncsBox ul{display: flex; width: 100%; justify-content: space-between; font-size: 23px;  border-bottom: 1px solid black; padding-bottom: 33px; padding-top: 33px;}
+.ncs .ncsBox ul li:nth-child(1){width:277px; }
+.ncs .ncsBox ul li:nth-child(2){width: 251px; text-align: center;}
+.ncs .ncsBox ul li:nth-child(3){width: 288px;}
+
+/* gallery */
+.gallery{width: 100%; padding: 250px 0; overflow: hidden;  }
+.gallery .inner{width: 70%; height: 600px; display: flex; justify-content: space-between; margin: 0 auto;}
+.gallery .inner .textBox{width: 45%; padding-top: 35px;}
+.gallery .inner .textBox h2{font-size: 50px; line-height: 1; font-weight: 500; letter-spacing: -2px;}
+.gallery .inner .textBox h2 span{display: block; font-style: italic; font-size: 120px; margin-bottom: 10px;}
+.gallery .inner .textBox .text{font-size: 14px; margin-bottom: 20px; margin-left: 20px;}
+.gallery .inner .textBox ul{font-size: 30px; margin-left: 41px; margin-bottom: 30px;}
+.gallery .inner .textBox ul li{line-height: 1.2; position: relative; padding-bottom: 10px; padding-left: 20px;}/* 가상선택자를 주기위해서 position relative를 줌 */
+.gallery .inner .textBox ul li::before{content: ''; width: 7px; height: 7px; border-radius: 50%; 
+    position: absolute; left: 0; top: 15px; background: #fff;}
+
+
+.gallery .inner .imgBox{width: 50%; position: relative; display: flex; justify-content: center; align-items: center;}
+.gallery .inner .imgBox li{width: 550px; height: 450px; position: absolute;}
+.gallery .inner .imgBox li.img1{transform: translateX(30px) rotate(10deg); z-index:1;}
+.gallery .inner .imgBox li.img2{transform: rotate(-5deg); z-index:2;}
+.gallery .inner .imgBox li.img3{transform: rotate(5deg); z-index:3;}
+.gallery .inner .imgBox li.img4{transform: rotate(-7deg); z-index:4;}
+.gallery .inner .imgBox li.img5{transform: rotate(-7deg); z-index:5;}
+.gallery .inner .imgBox li.img6{transform: rotate(-2deg); z-index:6;}
+.gallery .inner .imgBox li.img7{transform: rotate(0deg); z-index: 7;}
+.gallery .inner .imgBox li img{width: 100%; opacity: 1;}
+
+/* footer */
+footer{width: 100%; height: 100vh; position: relative; background: #000; color: #F8F8F4;}
+footer .textBox{width: 1735px; margin: 0 auto; }
+footer .textBox .title{font-size: 55px; position: absolute; bottom: 490px;}
+footer .textBox .email{font-size: 100px; position: absolute; right: 123px; bottom: 120px; width: 1103px; border-bottom: 3px solid #fff;}
+footer .textBox .tel{position: absolute; font-size: 30px; bottom: 83px;}
+footer .textBox .sns{display: flex; font-size: 22px; position: absolute; bottom: 30px;}
+footer .textBox .sns li{padding-left: 15px; box-sizing: border-box; width: 115px;}
+footer .textBox .sns li a{display:inline-block;position: relative; }
+footer .textBox .sns li a::after{content: '';height: 2px; width: 0;transition: all.5s; background: #CE8800; position: absolute;
+top: 40px; left: 50%; transform: translateX(-50%);}
+footer .textBox .sns li a:hover:after , footer .textBox .sns li a:focus:after{width: 100%;}
+
+footer .arrow{width: 500px; position: absolute; left: 710px; bottom: 330px;} 
+footer.motion #arrow{stroke-dasharray: 148; stroke-dashoffset: -148; animation: arrow .5s linear 1.5s forwards;}
+footer.motion #arrow2{stroke-dasharray: 35; stroke-dashoffset: -35; animation: arrow2 .3s linear 1.8s forwards;}
+
+@keyframes arrow{
+	0%{stroke-dashoffset:148;}
+	100%{stroke-dashoffset:0;}
+}
+@keyframes arrow2{
+	0%{stroke-dashoffset:35;}
+	100%{stroke-dashoffset:0;}
+}
+footer .inner .text span{display:inline; }
+footer.motion #Line{stroke-dasharray: 1604; stroke-dashoffset: -1604; animation: Line .8s linear .8s forwards;}
+footer .svgLine{width: 150px; position: absolute; bottom: 470px;left: 500px; display: inline-block; }
+
+@keyframes Line{
+	0%{stroke-dashoffset:1604;}
+	100%{stroke-dashoffset:0;}
+}

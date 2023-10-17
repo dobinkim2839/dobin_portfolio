@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+a {color: inherit; text-decoration: inherit;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+button {background: none; border: none;}
+img {vertical-align: middle;}
+
+
+@font-face {
+	font-family: 'NeueHaasDisplayRoman';
+	src: url(../fonts/NeueHaasDisplayRoman.ttf);
+}
+
+body{font-family: 'NeueHaasDisplayRoman';}
+
+/* index */
+.wrap{width: 100%; overflow: hidden; background: #000; color: white;}
+
+.menuOpen{display: none; transition: 0.3s;}
+
+/* header */
+header{width: 100%; position: fixed; left: 0; top: 0; background: rgba(0,0,0,0.5); z-index: 100; padding: 30px 60px; 
+	box-sizing: border-box; display: flex; justify-content: space-between; transition: 0.3s;} 
+header.active{transform: translateY(-100%);}
+header .logo{color: white;}
+header .gnb ul{display: flex; justify-content: space-between;}
+header .gnb ul li{margin-left: 70px;}
+header .gnb ul li a{display: block;}
+
+/* gnb hover 효과 */
+header .gnb ul li a .char{display: inline-block; position: relative; color: transparent; overflow: hidden;}
+header .gnb ul li a .char:before ,header .gnb ul li a .char:after{position: absolute; left: 0; top: 0;opacity: 0.6; color: white;
+content: attr(data-char); transition: transform 0.35s; transition-delay: calc(30ms *var(--char-index));}  /* data는 속성값을 가져오기 때문에 attr로  / 한글자씩 30ms 딜레이를 준다  */
+header .gnb ul li a .char:before {transform: translateY(100%);  color: #CE8800;} 
+
+
+/* hover 효과 */
+header .gnb ul li :hover .char:before{transform: translateY(0%);opacity: 1;}
+header .gnb ul li a:hover .char:after {transform: translateY(-100%);} 
+
+
+.con01{width: 100%; height: 800px; }
+.con01 .inner{width: 1439px; margin: 0 auto; display: flex; justify-content: space-between; padding-top: 100px; }
+.con01 .inner .textBox{padding-top: 95px;}
+.con01 .inner .textBox .title{font-size: 100px; padding-bottom: 50px;}
+.con01 .inner .textBox .text{font-size: 22px;}
+.con01 .inner .img{width: 100%;}
+.con01 .inner .img img{width: 542px; height: 653px;}
+.con01 .inner .iconBox{ display: flex; width: 210px; justify-content: space-between; padding-top: 160px;}
+.con01 .inner .iconBox p a{display: block;}
+
+
+.con02{background: url(../images/background.png); width:100%; height: 600px; padding-bottom: 300px; }
+.con02 .textBox{width: 1085px; height: 302px;  color: white; margin: 0 auto; display: flex; 
+	justify-content: space-between; position: relative; padding-top: 350px;}
+.con02 .textBox .title{font-size: 71px; line-height: 302px;}
+.con02 .textBox .fontsizeBox{font-size: 32px; position: relative;}
+.con02 .textBox .fontsizeBox::before{content: ''; width: 12px; height: 12px; background: white; position: absolute; border-radius: 50%;
+top: 145px; right: 308px; }
+.con02 .textBox .fontsizeBox .text1{padding-bottom: 40px;}
+.con02 .textBox .fontsizeBox .text2{padding-bottom: 50px;}
+.con02 .textBox .fontsizeBox .text3{font-size: 20px;}
+.con02 .textBox p.line {border: 1px dashed white; width: 308px; position: absolute; top: 501px; left: 450px; }
+
+.con03{width: 100%; height: 450px; }
+.con03 .color{width: 1076px; height: 292px; display: flex; justify-content: space-between; margin: 0 auto; }
+.con03 .color p{width: 292px; height: 292px; border-radius: 30px; text-align: center; line-height: 292px; font-size: 30px;}
+.con03 .color p:nth-child(1){content: ''; background: #FF0000;}
+.con03 .color p:nth-child(2){content: ''; background: #FFF; color: black;}
+.con03 .color p:nth-child(3){content: ''; background:  #282828;}
+
+.con04{width: 100%; padding-top: 150px;}
+.con04 .imgBox{width: 1228px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; }
+.con04 .imgBox img{width: 316px; height: 684px; padding-bottom: 95px;}
